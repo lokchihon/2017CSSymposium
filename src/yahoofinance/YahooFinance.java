@@ -80,14 +80,32 @@ public class YahooFinance {
     		}
     		y++;
     	}
-    }*/
+    }
     
     public static void main(String[] args) throws IOException
     {
     	Stock stock = YahooFinance.get("DOW");
     	BigDecimal price = stock.getQuote(true).getPrice();
     	stock.print();
-    }
+    }*/
+    
+	public static void main(String[]args) throws IOException{
+		Stock stock = YahooFinance.get("INTC");
+		 /*
+		BigDecimal price = stock.getQuote().getPrice();
+		BigDecimal change = stock.getQuote().getChangeInPercent();
+		BigDecimal peg = stock.getStats().getPeg();
+		BigDecimal dividend = stock.getDividend().getAnnualYieldPercent();
+		 */
+		
+		String[] symbols = new String[] {"INTC", "BABA", "TSLA", "AIR.PA", "YHOO"};
+		Map<String, Stock> stocks = YahooFinance.get(symbols); // single request
+		Stock intel = stocks.get("INTC");
+		Stock airbus = stocks.get("AIR.PA");
+		intel.print();
+		airbus.print();
+	}
+    
     /**
     * Sends a basic quotes request to Yahoo Finance. This will return a {@link Stock} object
     * with its {@link yahoofinance.quotes.stock.StockQuote}, {@link yahoofinance.quotes.stock.StockStats} 

@@ -329,9 +329,10 @@ public class StockQuote {
         this.avgVolume = avgVolume;
     }
     
+    
     @Override
     public String toString() {
-        return "Ask: " + this.ask + ", Bid: " + this.bid + ", Price: " + this.price + ", Prev close: " + this.previousClose;
+        return "Ask: " + this.ask + ", Bid: " + this.bid + ", Price: " + this.price + ", Prev close: " + this.previousClose +"/n" + this.price ;
     }
     
 }
