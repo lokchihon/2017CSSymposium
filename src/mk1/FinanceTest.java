@@ -9,7 +9,7 @@ import yahoofinance.YahooFinance;
 public class FinanceTest {
 
 	public void main(String[]args) throws IOException{
-		Stock stock = YahooFinance.get("INTC");
+		Stock stock = YahooFinance.get("DOW");
 		 
 		BigDecimal price = stock.getQuote().getPrice();
 		BigDecimal change = stock.getQuote().getChangeInPercent();
