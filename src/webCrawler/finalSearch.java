@@ -1,6 +1,7 @@
 package webCrawler;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -11,6 +12,10 @@ public class finalSearch {
 
 	static String[] google1 = new String[9];
 	static String[] google2 = new String[9];
+	static ArrayList<String> positive = new ArrayList<String>();
+	static ArrayList<String> negative = new ArrayList<String>();
+	static ArrayList<String> neutral = new ArrayList<String>();
+	
 	//AAPL
 	public static final String GOOGLE_SEARCH_URL1 = "https://www.google.com/search?q=aapl+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
 	//INTC
@@ -114,18 +119,45 @@ public class finalSearch {
 	
 	public static int yesOrNo(String headline){
 		if (findKeyword(headline, "good",0) >= 0
-			|| findKeyword(headline, "beneficial",0) >= 0
-			|| findKeyword(headline, "football",0) >= 0
-			|| findKeyword(headline, "soccer",0) >= 0
-			|| findKeyword(headline, "baseball",0) >= 0
-			|| findKeyword(headline, "badminton",0) >= 0				
-			|| findKeyword(headline, "tennis",0) >= 0
-			|| findKeyword(headline, "basketball",0) >= 0){
+			|| findKeyword(headline, "better",0) >= 0
+			|| findKeyword(headline, "accelerate",0) >= 0
+			|| findKeyword(headline, "grow",0) >= 0
+			|| findKeyword(headline, "strong",0) >= 0
+			|| findKeyword(headline, "profitable",0) >= 0				
+			|| findKeyword(headline, "advantage",0) >= 0
+			|| findKeyword(headline, "gain",0) >= 0
+			|| findKeyword(headline, "rise",0) >= 0){
 			return 4;
 		}
-		return 2;
+		else if (findKeyword(headline, "bad",0) >= 0
+				|| findKeyword(headline, "decline",0) >= 0
+				|| findKeyword(headline, "worse",0) >= 0
+				|| findKeyword(headline, "slow",0) >= 0
+				|| findKeyword(headline, "weak",0) >= 0
+				|| findKeyword(headline, "losing",0) >= 0				
+				|| findKeyword(headline, "lose",0) >= 0
+				|| findKeyword(headline, "stuck",0) >= 0
+				|| findKeyword(headline, "worry",0) >= 0
+				|| findKeyword(headline, "drop",0) >= 0){
+				return 4;
+		}
+		else
+		{
+			return 3;
+		}
 	}
 	
+	/**
+	public static void expand() {
+	    String[] newArray = new String[OrigArray.length + 1];
+	    System.arraycopy(OrigArray, 0, newArray, 0, OrigArray.length);
+
+	    //an alternative to using System.arraycopy would be a for-loop:
+	    // for(int i = 0; i < OrigArray.length; i++)
+	    //     newArray[i] = OrigArray[i];
+	    OrigArray = newArray;
+	}
+	**/
 
 	public static void main(String[] args) throws IOException {
 		finalSearch.setter();
@@ -147,6 +179,7 @@ public class finalSearch {
 			for (Element result : results) {
 				String linkHref = result.attr("href");
 				String linkText = result.text();
+				yesOrNo(linkText);
 				System.out.println("Text:: " + linkText + ", URL:: " + linkHref.substring(6, linkHref.indexOf("&")));
 			}
 			System.out.println();
