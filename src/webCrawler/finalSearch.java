@@ -59,7 +59,7 @@ public class finalSearch {
 	 * is not a substring of a longer string (so, for
 	 * example, "I know" does not contain "no").
 	 *
-	 * @param statement
+	 * @param headline
 	 *            the string to search
 	 * @param goal
 	 *            the string to search for
@@ -67,9 +67,9 @@ public class finalSearch {
 	 *            the character of the string to begin the
 	 *            search at
 	 * @return the index of the first occurrence of goal in
-	 *         statement or -1 if it's not found
+	 *         headline or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal, int startPos){
+	private static int findKeyword(String statement, String goal, int startPos){
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
 
@@ -112,16 +112,20 @@ public class finalSearch {
 		return -1;
 	}
 	
-	/**
-	if (findKeyword(statement, "swim") >= 0
-			|| findKeyword(statement, "run") >= 0
-			|| findKeyword(statement, "football") >= 0
-			|| findKeyword(statement, "soccer") >= 0
-			|| findKeyword(statement, "baseball") >= 0
-			|| findKeyword(statement, "badminton") >= 0
-			|| findKeyword(statement, "tennis") >= 0
-			|| findKeyword(statement, "basketball") >= 0)
-		**/
+	public static int yesOrNo(String headline){
+		if (findKeyword(headline, "good",0) >= 0
+			|| findKeyword(headline, "beneficial",0) >= 0
+			|| findKeyword(headline, "football",0) >= 0
+			|| findKeyword(headline, "soccer",0) >= 0
+			|| findKeyword(headline, "baseball",0) >= 0
+			|| findKeyword(headline, "badminton",0) >= 0				
+			|| findKeyword(headline, "tennis",0) >= 0
+			|| findKeyword(headline, "basketball",0) >= 0){
+			return 4;
+		}
+		return 2;
+	}
+	
 
 	public static void main(String[] args) throws IOException {
 		finalSearch.setter();
