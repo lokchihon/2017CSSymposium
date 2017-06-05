@@ -117,7 +117,7 @@ public class finalSearch {
 		return -1;
 	}
 	
-	public static int yesOrNo(String headline){
+	public static void yesOrNo(String headline){
 		if (findKeyword(headline, "good",0) >= 0
 			|| findKeyword(headline, "better",0) >= 0
 			|| findKeyword(headline, "accelerate",0) >= 0
@@ -127,7 +127,7 @@ public class finalSearch {
 			|| findKeyword(headline, "advantage",0) >= 0
 			|| findKeyword(headline, "gain",0) >= 0
 			|| findKeyword(headline, "rise",0) >= 0){
-			return 4;
+			positive.add(headline);
 		}
 		else if (findKeyword(headline, "bad",0) >= 0
 				|| findKeyword(headline, "decline",0) >= 0
@@ -139,25 +139,30 @@ public class finalSearch {
 				|| findKeyword(headline, "stuck",0) >= 0
 				|| findKeyword(headline, "worry",0) >= 0
 				|| findKeyword(headline, "drop",0) >= 0){
-				return 4;
+				negative.add(headline);
 		}
 		else
 		{
-			return 3;
+			neutral.add(headline);
 		}
+		
 	}
 	
-	/**
-	public static void expand() {
-	    String[] newArray = new String[OrigArray.length + 1];
-	    System.arraycopy(OrigArray, 0, newArray, 0, OrigArray.length);
-
-	    //an alternative to using System.arraycopy would be a for-loop:
-	    // for(int i = 0; i < OrigArray.length; i++)
-	    //     newArray[i] = OrigArray[i];
-	    OrigArray = newArray;
+	public ArrayList<String> goodOrBad(int slope)
+	{
+		if (slope > 0)
+		{
+			return positive;
+		}
+		else if (slope < 0)
+		{
+			return negative;
+		}
+		else
+		{
+			return neutral;
+		}
 	}
-	**/
 
 	public static void main(String[] args) throws IOException {
 		finalSearch.setter();
@@ -183,6 +188,9 @@ public class finalSearch {
 				System.out.println("Text:: " + linkText + ", URL:: " + linkHref.substring(6, linkHref.indexOf("&")));
 			}
 			System.out.println();
+			System.out.println(positive);
+			System.out.println(negative);
+			System.out.println(neutral);
 		}
 		
 	}
