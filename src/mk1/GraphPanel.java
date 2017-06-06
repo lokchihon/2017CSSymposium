@@ -14,10 +14,11 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import webCrawler.finalSearch;
 
 public class GraphPanel extends JPanel {
 	
-	static int[] scoring = { 4, 3, 5, 1, 3};
+	static double[] scoring;
 
     private int width = 800;
     private int heigth = 400;
@@ -150,6 +151,15 @@ public class GraphPanel extends JPanel {
     public List<Double> getScores() {
     	return scores;
     }
+    
+    public static double findSlope() {
+    	if (scoring.length == 0) {
+    		return 0;
+    	} 
+    	else {
+    		return (scoring[scoring.length-1] - scoring[0])/(scoring.length);
+    	}
+    }
 
     private static void createAndShowGui() {
     	List<Double> scores = new ArrayList<>();
@@ -159,7 +169,7 @@ public class GraphPanel extends JPanel {
         }
         GraphPanel mainPanel = new GraphPanel(scores);
         mainPanel.setPreferredSize(new Dimension(800, 600));
-        JFrame frame = new JFrame("DrawGraph");
+        JFrame frame = new JFrame("Finance");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(mainPanel);
         frame.pack();
@@ -169,13 +179,15 @@ public class GraphPanel extends JPanel {
 
     public static void main(String[] args) {
     	
-    	int[] arry = {2, 3, 5, 7};
+    	double[] arry = {2.5, 3.5,10.3, 5.0, 7.1};
     	scoring = arry;
-    	
+    	System.out.println(findSlope(arry));
     	SwingUtilities.invokeLater(new Runnable() {
     		public void run() {
     			createAndShowGui();
     		}
     	});
+    	
+    	
     }
 }

@@ -141,25 +141,20 @@ public class finalSearch {
 				|| findKeyword(headline, "drop",0) >= 0){
 				negative.add(headline);
 		}
-		else
-		{
+		else{
 			neutral.add(headline);
 		}
-		
 	}
 	
-	public ArrayList<String> goodOrBad(int slope)
+	public ArrayList<String> goodOrBad(double slope)
 	{
-		if (slope > 0)
-		{
+		if (slope > 0){
 			return positive;
 		}
-		else if (slope < 0)
-		{
+		else if (slope < 0){
 			return negative;
 		}
-		else
-		{
+		else{
 			return neutral;
 		}
 	}
@@ -184,13 +179,9 @@ public class finalSearch {
 			for (Element result : results) {
 				String linkHref = result.attr("href");
 				String linkText = result.text();
-				yesOrNo(linkText);
 				System.out.println("Text:: " + linkText + ", URL:: " + linkHref.substring(6, linkHref.indexOf("&")));
 			}
 			System.out.println();
-			System.out.println(positive);
-			System.out.println(negative);
-			System.out.println(neutral);
 		}
 		
 	}
