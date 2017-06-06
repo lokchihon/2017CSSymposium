@@ -12,6 +12,7 @@ public class finalSearch {
 
 	static String[] google1 = new String[9];
 	static String[] google2 = new String[9];
+
 	static ArrayList<String> positive = new ArrayList<String>();
 	static ArrayList<String> negative = new ArrayList<String>();
 	static ArrayList<String> neutral = new ArrayList<String>();
@@ -146,7 +147,7 @@ public class finalSearch {
 		}
 	}
 	
-	public ArrayList<String> goodOrBad(double slope)
+	public static ArrayList<String> goodOrBad(double slope)
 	{
 		if (slope > 0){
 			return positive;
@@ -165,6 +166,7 @@ public class finalSearch {
 		int num = 10;
 		
 		for (String i : google1){
+
 			System.out.println(google2[counter]+" NEWS");
 			counter++;
 			String searchURL = i + "?q="+i+"&num="+num;
