@@ -2,6 +2,7 @@ package mk1;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,7 @@ import yahoofinance.YahooFinance;
 public class FinanceTest {
 
 	public static void main(String[]args) throws IOException{
+		ArrayList <Double> tenminprice = new ArrayList<Double>();
 		Stock stock = YahooFinance.get("INTC");
 		 /*
 		BigDecimal price = stock.getQuote().getPrice();
@@ -35,7 +37,8 @@ public class FinanceTest {
 			Stock intel = stocks.get("INTC");
 			Stock airbus = stocks.get("AIR.PA");
 			BigDecimal price = intel.getQuote().getPrice();
-			System.out.println(price);
+			System.out.println(price.doubleValue());
+			tenminprice.add(price.doubleValue());
 			try {
 				TimeUnit.MINUTES.sleep(1);
 			} catch (InterruptedException e) {
