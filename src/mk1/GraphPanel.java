@@ -181,7 +181,7 @@ public class GraphPanel extends JPanel {
     	
     	double[] arry = {2.5, 3.5,10.3, 5.0, 7.1};
     	scoring = arry;
-    	System.out.println(findSlope(arry));
+    	System.out.println(findSlope());
     	SwingUtilities.invokeLater(new Runnable() {
     		public void run() {
     			createAndShowGui();
