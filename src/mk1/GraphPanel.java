@@ -9,14 +9,19 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import webCrawler.finalSearch;
 
 public class GraphPanel extends JPanel {
+	
+	public static final String GOOGLE_SEARCH_URL1 = "https://www.google.com/search?q=aapl+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
 	
 	static double[] scoring;
 
@@ -177,16 +182,24 @@ public class GraphPanel extends JPanel {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+    	
+    	Scanner sc = new Scanner(System.in);
+    	String i = sc.nextLine();
+    	finalSearch.setter();
+    	finalSearch.whichArticle(i);
     	
     	double[] arry = {2.5, 3.5,10.3, 5.0, 7.1};
     	scoring = arry;
-    	finalSearch.goodOrBad(findSlope());
+    	double k = findSlope();
+    	
+    	/**
     	SwingUtilities.invokeLater(new Runnable() {
     		public void run() {
     			createAndShowGui();
     		}
     	});
+    	**/
     	
     	
     }
