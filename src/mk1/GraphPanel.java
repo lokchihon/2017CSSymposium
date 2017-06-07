@@ -9,15 +9,21 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import webCrawler.finalSearch;
 
 public class GraphPanel extends JPanel {
 	
-	static int[] scoring = { 4, 3, 5, 1, 3};
+	public static final String GOOGLE_SEARCH_URL1 = "https://www.google.com/search?q=aapl+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	
+	static double[] scoring;
 
     private int width = 800;
     private int heigth = 400;
@@ -150,6 +156,15 @@ public class GraphPanel extends JPanel {
     public List<Double> getScores() {
     	return scores;
     }
+    
+    public static double findSlope() {
+    	if (scoring.length == 0) {
+    		return 0;
+    	} 
+    	else {
+    		return (scoring[scoring.length-1] - scoring[0])/(scoring.length);
+    	}
+    }
 
     private static void createAndShowGui() {
     	List<Double> scores = new ArrayList<>();
@@ -159,7 +174,7 @@ public class GraphPanel extends JPanel {
         }
         GraphPanel mainPanel = new GraphPanel(scores);
         mainPanel.setPreferredSize(new Dimension(800, 600));
-        JFrame frame = new JFrame("DrawGraph");
+        JFrame frame = new JFrame("Finance");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(mainPanel);
         frame.pack();
@@ -167,15 +182,25 @@ public class GraphPanel extends JPanel {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
     	
-    	int[] arry = {2, 3, 5, 7};
+    	Scanner sc = new Scanner(System.in);
+    	String i = sc.nextLine();
+    	finalSearch.setter();
+    	finalSearch.whichArticle(i);
+    	
+    	double[] arry = {2.5, 3.5,10.3, 5.0, 7.1};
     	scoring = arry;
+    	double k = findSlope();
     	
+    	/**
     	SwingUtilities.invokeLater(new Runnable() {
     		public void run() {
     			createAndShowGui();
     		}
     	});
+    	**/
+    	
+    	
     }
 }
