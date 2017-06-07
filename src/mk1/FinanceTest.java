@@ -36,7 +36,7 @@ public class FinanceTest {
 			String[] symbols = new String[] {"INTC", "BABA", "TSLA", "AIR.PA", "YHOO"};
 			Map<String, Stock> stocks = YahooFinance.get(symbols); // single request
 			Stock intel = stocks.get("INTC");
-			Stock airbus = stocks.get("AIR.PA");
+			//Stock airbus = stocks.get("AIR.PA");
 			BigDecimal price = intel.getQuote().getPrice();
 			System.out.println(price.doubleValue());
 			tenminprice.add(price.doubleValue());
