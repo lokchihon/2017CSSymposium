@@ -3,6 +3,7 @@ package mk1;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -46,5 +47,6 @@ public class FinanceTest {
 				e.printStackTrace();
 			}
 		}
+		System.out.print(Arrays.toString(tenminprice.toArray()));
 	}
 }
