@@ -27,7 +27,31 @@ import yahoofinance.YahooFinance;
 
 public class GraphPanel extends JPanel {
 	
+	static String[] google1 = new String[9];
+	static String[] google2 = new String[9];
+
+	static ArrayList<String> positive = new ArrayList<String>();
+	static ArrayList<String> negative = new ArrayList<String>();
+	static ArrayList<String> neutral = new ArrayList<String>();
+	
+	//AAPL
 	public static final String GOOGLE_SEARCH_URL1 = "https://www.google.com/search?q=aapl+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//INTC
+	public static final String GOOGLE_SEARCH_URL2 = "https://www.google.com/search?q=intc+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//DOW
+	public static final String GOOGLE_SEARCH_URL3 = "https://www.google.com/search?q=dow+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//TSLA
+	public static final String GOOGLE_SEARCH_URL4 = "https://www.google.com/search?q=tsla+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//MSFT
+	public static final String GOOGLE_SEARCH_URL5 = "https://www.google.com/search?q=msft+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//GE
+	public static final String GOOGLE_SEARCH_URL6 = "https://www.google.com/search?q=ge+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//JPM
+	public static final String GOOGLE_SEARCH_URL7 = "https://www.google.com/search?q=jpm+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//AMZN
+	public static final String GOOGLE_SEARCH_URL8 = "https://www.google.com/search?q=amzn+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
+	//XOM
+	public static final String GOOGLE_SEARCH_URL9 = "https://www.google.com/search?q=xom+news&rlz=1C1CHBF_enUS704US704&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjIjfTG2JXUAhWs64MKHeaYC5MQ_AUICigB&biw=674&bih=762";
 	
 	static double[] scoring;
 
@@ -190,10 +214,10 @@ public class GraphPanel extends JPanel {
 
     public static void main(String[] args) throws IOException {
     	
-    	Scanner sc = new Scanner(System.in);
-    	String i = sc.nextLine();
+    	//Scanner sc = new Scanner(System.in);
+    	//String i = sc.nextLine();
     	finalSearch.setter();
-    	finalSearch.whichArticle(i);
+    	finalSearch.whichArticle("INTC");
     	
 		ArrayList <Double> tenminprice = new ArrayList<Double>();
 		Stock stock = YahooFinance.get("INTC");

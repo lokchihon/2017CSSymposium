@@ -179,6 +179,7 @@ public class finalSearch {
 					String linkHref = result.attr("href");
 					String linkText = result.text();
 					System.out.println("Text:: " + linkText + ", URL:: " + linkHref.substring(6, linkHref.indexOf("&")));
+					yesOrNo(linkText);
 				}
 			}
 		}
