@@ -1,5 +1,13 @@
 package webCrawler;
 
+/**
+ * Desmond Aska Maddox
+ * Jack Dai
+ * Darren Kong
+ * Lok Chi Hon
+ * CS Final Project
+ */
+
 import java.io.IOException;
 import java.util.ArrayList;
 

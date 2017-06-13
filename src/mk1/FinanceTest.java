@@ -1,5 +1,13 @@
 package mk1;
 
+/**
+ * Desmond Aska Maddox
+ * Jack Dai
+ * Darren Kong
+ * Lok Chi Hon
+ * CS Final Project
+ */
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;

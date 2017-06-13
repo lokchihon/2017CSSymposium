@@ -1,5 +1,14 @@
 package mk1;
 
+/**
+ * Desmond Aska Maddox
+ * Jack Dai
+ * Darren Kong
+ * Lok Chi Hon
+ * CS Final Project
+ */
+
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -214,8 +223,6 @@ public class GraphPanel extends JPanel {
 
     public static void main(String[] args) throws IOException {
     	
-    	//Scanner sc = new Scanner(System.in);
-    	//String i = sc.nextLine();
     	finalSearch.setter();
     	finalSearch.whichArticle("INTC");
     	
@@ -237,7 +244,7 @@ public class GraphPanel extends JPanel {
 			System.out.println(price.doubleValue());
 			tenminprice.add(price.doubleValue());
 			try {
-				TimeUnit.MINUTES.sleep(1);
+				TimeUnit.SECONDS.sleep(30);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -249,14 +256,11 @@ public class GraphPanel extends JPanel {
     	scoring = arry;
     	double k = findSlope();
     	
-    	/**
     	SwingUtilities.invokeLater(new Runnable() {
     		public void run() {
     			createAndShowGui();
     		}
     	});
-    	**/
-    	
     	
     }
 }
